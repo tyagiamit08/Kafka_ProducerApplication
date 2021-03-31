@@ -13,8 +13,8 @@ namespace Kafka_ProducerApplication.Controllers
 
 	public class ApplicationController : ControllerBase
 	{
-		private readonly IKafkaProducer<string, UserRegistered> _kafkaProducer;
-		public ApplicationController(IKafkaProducer<string, UserRegistered> kafkaProducer)
+		private readonly IKafkaProducer<string, RegisterUser> _kafkaProducer;
+		public ApplicationController(IKafkaProducer<string, RegisterUser> kafkaProducer)
 		{
 			_kafkaProducer = kafkaProducer;
 		}
@@ -22,9 +22,9 @@ namespace Kafka_ProducerApplication.Controllers
 		[HttpPost]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[SwaggerOperation("Produce Kafka Message", "This endpoint can be used to produce dummy message in Kafka Topic")]
-		public async Task<IActionResult> ProduceMessage(UserRegistered request)
+		public async Task<IActionResult> ProduceMessage(RegisterUser request)
 		{
-			await _kafkaProducer.ProduceAsync(KafkaTopics.UserRegistered, null, request);
+			await _kafkaProducer.ProduceAsync(KafkaTopics.RegisterUser, null, request);
 
 			return Ok("User Registration In Progress");
 		}

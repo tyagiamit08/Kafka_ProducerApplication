@@ -6,7 +6,12 @@
 	public static class KafkaTopics
 	{
 		/// <summary>
-		/// Denotes initiate survey deletion command
+		/// Denotes register user topic
+		/// </summary>
+		public static string RegisterUser => "RegisterUser";
+
+		/// <summary>
+		/// Denotes user registered topic
 		/// </summary>
 		public static string UserRegistered => "UserRegistered";
 	}

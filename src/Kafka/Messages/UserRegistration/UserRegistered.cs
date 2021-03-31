@@ -6,20 +6,8 @@
 	public class UserRegistered
 	{
 		/// <summary>
-		/// Indicates UserName to be used for login
+		/// Indicates UserId of the registered User
 		/// </summary>
-		public string UserName { get; set; }
-		/// <summary>
-		/// Indicates firstName
-		/// </summary>
-		public string FirstName { get; set; }
-		/// <summary>
-		/// Indicates lastname
-		/// </summary>
-		public string LastName { get; set; }
-		/// <summary>
-		/// Indicates EmailId
-		/// </summary>
-		public string EmailId { get; set; }
+		public int UserId { get; set; }
 	}
 }
