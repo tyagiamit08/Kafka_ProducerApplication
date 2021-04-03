@@ -11,18 +11,18 @@ namespace Kafka_ProducerApplication.Controllers
 	[ApiController]
 	[Route("api/[controller]")]
 
-	public class UserController : ControllerBase
+	public class UsersController : ControllerBase
 	{
 		private readonly IKafkaProducer<string, RegisterUser> _kafkaProducer;
-		public UserController(IKafkaProducer<string, RegisterUser> kafkaProducer)
+		public UsersController(IKafkaProducer<string, RegisterUser> kafkaProducer)
 		{
 			_kafkaProducer = kafkaProducer;
 		}
-
+		 
 		[HttpPost]
 		[Route("Register")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
-		[SwaggerOperation("Register User", "This endpoint can be used to register a user but for demo produces dummy message in Kafka Topic")]
+		[SwaggerOperation("Register User", "This endpoint can be used to register a User ,but for demo produces dummy message in Kafka Topic")]
 		public async Task<IActionResult> ProduceMessage(RegisterUser request)
 		{
 			await _kafkaProducer.ProduceAsync(KafkaTopics.RegisterUser, null, request);
